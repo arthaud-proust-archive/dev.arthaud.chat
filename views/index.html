@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat</title>
+        <script src="jquery.min.js"></script>
+        <script src="axios.min.js"></script>
+        <script src="chat.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="master.css">
+    </head>
+    <body>
+        <div class="popup" id="chooseName" style="display: none">
+            <h1>Choisir un nom</h1>
+            <p>
+                <input id="name" type="text" autocomplete="off">
+                <input id="saveName" type="button" value="Rejoindre">
+            </p>
+        </div>
+        <div id="session">
+            <span id="sessionName"></span>
+        </div>
+        <div id="messages">
+            <div id="container"></div>
+        </div>
+        <div id="form">
+            <input id="msg" type="text" name="msg" value="" placeholder="Message..." autocomplete="off">
+            <input id="sendMsg" type="button" value="Envoyer">
+        </div>
+    </body>
+</html>
