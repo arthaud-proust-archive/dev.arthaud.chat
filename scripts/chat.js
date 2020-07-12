@@ -9,7 +9,7 @@ function pushMessage(msg) {
     lastMsgId = msg.id;
     messages.push(msg)
     $('#container').append(`
-        <div class="message ${msg.author == name?'me':''}" id="msg${msg.id}">
+        <div class="message${msg.author == name?' me':''}" id="msg${msg.id}">
             <span class="author"></span>
             <span class="content"></span>
             <span class="time"></span>
@@ -20,6 +20,11 @@ function pushMessage(msg) {
     $('#msg'+msg.id+' .time').text(msg.time)
 
     $('#messages').scrollTop($('#messages').prop("scrollHeight"));
+
+    $('.message').unbind();
+    $('.message').click(function() {
+        $(this).attr('showtime', $(this).attr('showtime')=="true"?"false":"true");
+    })
 }
 
 function fetchMessages() {
@@ -78,4 +83,9 @@ $(()=>{
     });
     $('#sendMsg').click(function() {sendMessage()});
 
+    $('#sessionName').click(function() {
+        localStorage.clear();
+        $('#chooseName').fadeIn();
+    });
+    
 });
