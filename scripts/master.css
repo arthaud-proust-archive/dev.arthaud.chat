@@ -84,7 +84,7 @@ input[type='button'] {
 .message {
     position: relative;
     border-radius: 20px;
-    padding: 15px 25px;
+    padding: 12px 20px;
     margin: 5px;
     background: #FCFCFC;
     width: auto;
@@ -107,7 +107,20 @@ input[type='button'] {
     margin-bottom: 5px;
 }
 .message .time {
+    display: none;
     font-size: 0.8rem;
+}
+.message[showtime="true"] {
+    margin-bottom: 20px;
+}
+.message[showtime="true"] .time {
+    display: inline;
+    position: absolute;
+    bottom: -17px;
+    font-size: 0.8rem;
+}
+.message.me[showtime="true"] .time {
+    right: 20px;
 }
 
 #form {
