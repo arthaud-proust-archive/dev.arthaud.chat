@@ -3,7 +3,15 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
     flex-direction: column;
+    -o-flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -12,6 +20,8 @@ body {
 }
 
 * {font-family: 'Inter', sans-serif;}
+a {text-decoration: none; cursor: pointer; color:#0079ca}
+
 
 input {
     padding: 10px 15px;
@@ -37,11 +47,27 @@ input[type='button']:focus {
     outline:0;
 }
 
+.footer {
+    position: absolute;
+    bottom: 20px;
+}
 
+#chooseName {
+    z-index: 1001;
+}
 .popup {
+    box-sizing: border-box;
     position: absolute;
     display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
     flex-direction: column;
+    -o-flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -52,11 +78,11 @@ input[type='button']:focus {
     z-index: 1000;
 }
 
-#chooseName p {
+#chooseName p, #chooseRoom p {
     text-align: center;
 }
 
-#chooseName #name {
+#chooseName #name, #chooseRoom #room {
     width: 50%;
 }
 
@@ -65,16 +91,45 @@ input[type='button']:focus {
     height: 5%;
     width: 100%;
     display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
     box-sizing: border-box;
     padding: 0 10px;
     flex-direction: column;
+    -o-flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+    color:#818181;
+    font-size: 0.8rem;
 }
 #sessionName {
-    color:#818181;
-    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+#sessionName b{
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
+#sessionExit {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    color:#818181;
+}
+#sessionExit svg{
+    height: 20px;
+    width: 20px;
+}
+
 
 #messages {
     box-sizing: border-box;
@@ -82,14 +137,30 @@ input[type='button']:focus {
     width: 100%;
     height: 85%;
     display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
     flex-direction: column;
-    align-items: center;
+    -o-flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: stretch;
     background: #FBFBFB00;
     overflow-y: scroll;
 }
 #messages #container {
     display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
     flex-direction: column;
+    -o-flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
     align-items: flex-start;
     max-width: 900px;
     height: auto;
@@ -140,7 +211,15 @@ input[type='button']:focus {
     width: 100%;
     position: relative;
     display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
     flex-direction: row;
+    -o-flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 0 10px ;

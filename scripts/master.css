@@ -12,6 +12,7 @@ body {
 }
 
 * {font-family: 'Inter', sans-serif;}
+a {text-decoration: none; cursor: pointer; color:#0079ca}
 
 input {
     padding: 10px 15px;
@@ -33,6 +34,11 @@ input[type='button'] {
     background: #DDD;
 }
 
+.footer {
+    position: absolute;
+    bottom: 20px;
+}
+
 .popup {
     position: absolute;
     display: flex;
@@ -47,6 +53,10 @@ input[type='button'] {
     z-index: 1000;
 }
 
+#chooseName {
+    z-index: 1001;
+}
+
 #session {
     position: relative;
     height: 10%;
@@ -58,8 +68,23 @@ input[type='button'] {
     top: 15px;
     right: 15px;
     color:#818181;
-    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#sessionName b{
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
 
+#sessionExit {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color:#818181;
 }
 
 #messages {

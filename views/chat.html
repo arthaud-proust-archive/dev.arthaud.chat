@@ -18,20 +18,20 @@
                 <input id="name" type="text" autocomplete="off">
                 <input id="saveName" type="button" value="Enregistrer">
             </p>
-            <p class="footer">
+            <p>
                 Le propriétaire du site décline toute responsabilité sur les messages envoyés ici.
             </p>
         </div>
-        <div class="popup" id="chooseRoom">
-            <h1>Rejoignez un salon</h1>
-            <p>
-                <input id="room" placeholder="Lien du salon" type="text" autocomplete="off">
-                <input id="saveRoom" type="button" value="Rejoindre">
-            </p>
-            <a href="/create">Ou créez-le</a>
-            <p class="footer">
-                Le propriétaire du site décline toute responsabilité sur les messages envoyés ici.
-            </p>
+        <div id="session">
+            <a href="/" id="sessionExit" title="Quitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
+            <span id="sessionName"></span>
+        </div>
+        <div id="messages">
+            <div id="container"></div>
+        </div>
+        <div id="form">
+            <input id="msg" type="text" name="msg" value="" placeholder="Message..." autocomplete="off">
+            <input id="sendMsg" type="button" value="Envoyer">
         </div>
     </body>
 </html>
