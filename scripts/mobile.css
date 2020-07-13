@@ -206,6 +206,21 @@ input[type='button']:focus {
     right: 20px;
 }
 
+#savedRooms {
+    display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    flex-direction: column;
+    -o-flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #form {
     height: 10%;
     width: 100%;

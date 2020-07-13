@@ -10,14 +10,14 @@ module.exports = class Messages extends Dispatcher {
         this.room
     }
 
-    newRoom() {
-        let tRoom = new RandExp(/^[0-9a-z]{4}$/).gen();
-        while (this.rooms.includes(tRoom)) {
-            tRoom = new RandExp(/^[0-9a-z]{4}$/).gen();
-        }
-        this.rooms.push(tRoom);
-        return tRoom
-    }
+    // newRoom() {
+    //     let tRoom = new RandExp(/^[0-9a-z]{4}$/).gen();
+    //     while (this.rooms.includes(tRoom)) {
+    //         tRoom = new RandExp(/^[0-9a-z]{4}$/).gen();
+    //     }
+    //     this.rooms.push(tRoom);
+    //     return tRoom
+    // }
 
     condition(req, res) {
         let messages = this.messages.filter(msg => msg.room == req.body.room)

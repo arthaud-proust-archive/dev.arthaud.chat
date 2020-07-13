@@ -6,7 +6,9 @@
         <title>Chat</title>
         <script src="jquery.min.js"></script>
         <script src="axios.min.js"></script>
+        <script src="randexp.min.js"></script>
         <script src="chat.js"></script>
+        <script src="index.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="master.css" media="screen and (min-width:900px)">
         <link rel="stylesheet" href="mobile.css" media="screen and (max-width:899px)">
@@ -24,11 +26,13 @@
         </div>
         <div class="popup" id="chooseRoom">
             <h1>Rejoignez un salon</h1>
+            <span>Ou créez-le</span>
             <p>
                 <input id="room" placeholder="Lien du salon" type="text" autocomplete="off">
                 <input id="saveRoom" type="button" value="Rejoindre">
             </p>
-            <a href="/create">Ou créez-le</a>
+            <a id="randomRoom" href="">Créer un salon aléatoire</a>
+            <p id="savedRooms"></p>
             <p class="footer">
                 Le propriétaire du site décline toute responsabilité sur les messages envoyés ici.
             </p>

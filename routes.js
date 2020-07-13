@@ -10,27 +10,26 @@ module.exports = function(router) {
         next();
     });
 
-    // router.get('/', function(res) {
+    router.get('/', function(res) {
+        res.sendFile(path.join(__dirname+'/views/index.html'));
+    });
+    // router.get('/create', function(req, res) {
+    //     res.redirect('/'+messages.newRoom());
     // });
-    router.get('/create', function(req, res) {
-        res.redirect('/'+messages.newRoom());
-    });
 
-    router.get('/404', function(req, res) {
-        res.sendFile(path.join(__dirname+'/views/404.html'));
-    });
+    // router.get('/404', function(req, res) {
+    //     res.sendFile(path.join(__dirname+'/views/404.html'));
+    // });
 
 
     router.get('/:room', function(req, res) {
-        console.log('Room',req.params.room);
-        console.log(messages.rooms.includes(req.params.room));
-        
-        if(messages.rooms.includes(req.params.room)) {
-            res.sendFile(path.join(__dirname+'/views/chat.html'));
-        } else {
+        // console.log('Room',req.params.room);
+        res.sendFile(path.join(__dirname+'/views/chat.html'));
+        // if(messages.rooms.includes(req.params.room)) {
+        // } else {
             // res.redirect('/404');
-            res.sendFile(path.join(__dirname+'/views/404.html'));
-        }
+            // res.sendFile(path.join(__dirname+'/views/404.html'));
+        // }
     });
     
     
