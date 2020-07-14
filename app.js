@@ -12,6 +12,7 @@ app.use(express.json());                            // to support JSON-encoded b
 app.use(express.urlencoded());                      // to support URL-encoded bodies
 
 //add the router folders
+app.use(express.static(__dirname + '/public'));     // Store all assets files in public folder.
 app.use(express.static(__dirname + '/views'));      // Store all HTML files in view folder.
 app.use(express.static(__dirname + '/scripts'));    // Store all JS and CSS in Scripts folder.
 

@@ -10,6 +10,6 @@ $(()=>{
         savedRooms.forEach(room=>{$('#savedRooms').append(`<a href="${room}">${room}</a>`)});
         $('#savedRooms').append(`<span style="margin-top:5px;cursor:pointer" id="clearSavedRooms">Vider la liste</span>`);
 
-        $('#clearSavedRooms').click(function() {localStorage.setItem('rooms', '[]'); window.location.reload()});
+        $('#clearSavedRooms').click(function() {localStorage.setItem('rooms', ''); window.location.reload()});
     }
 });

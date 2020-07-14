@@ -12,6 +12,7 @@ if(Array.isArray(JSON.parse(localStorage.getItem('rooms'))) ) {
 const messages = [];
 let name = localStorage.getItem('name')?localStorage.getItem('name'):undefined;
 let lastMsgId = -1;
+const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
 
 function removeDiacritics (str) {
@@ -165,7 +166,7 @@ function sendMessage(e) {
 
     if (!$('#msg').val().match(/\S/gm)) return
 
-    notif([{room, author:name, content:$('#msg').val()}]);
+    // notif([{room, author:name, content:$('#msg').val()}]);
 
     axios({
         method: 'post',
@@ -184,6 +185,10 @@ function sendMessage(e) {
 }
 
 $(()=>{
+
+    if(isChrome) {
+        $('body').append(`<style>@media(max-width:899px) {body {height: 92vh}}</style>`);
+    }
 
     if(name===undefined) {
         $('#chooseName').attr('style', 'display: flex')
