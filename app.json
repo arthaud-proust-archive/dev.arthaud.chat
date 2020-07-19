@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "chat",
+    "name": "Chat",
     "slug": "chat",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -28,6 +28,8 @@
     },
     "android": {
       "package": "dev.arthaud.chat"
-    }
+    },
+    "description": "Enfin des salons de discussion privés, conversez à plusieur sans être espionné.",
+    "githubUrl": "https://github.com/arthaud-proust/chat.arthaud.dev.git"
   }
 }

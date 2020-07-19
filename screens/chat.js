@@ -9,11 +9,12 @@ TextInput,
 TouchableOpacity,
 FlatList
 } from 'react-native';
+import { KeyboardAwareScrollView, KeyboardAwareFlatList } from 'react-native-keyboard-aware-scroll-view'
 import Message from '../components/Message';
 
 
 
-export default class ScreenHome extends React.Component {
+export default class ScreenCHat extends React.Component {
     constructor() {
         super();
 
@@ -49,6 +50,7 @@ export default class ScreenHome extends React.Component {
             }
         }).then(r=>{
             this.lastMsgId = r.data.runtimeId;
+            this.typingMessage = '';
             this.textInput.clear();
         });
     }
@@ -78,8 +80,9 @@ export default class ScreenHome extends React.Component {
 
         return (
             <SafeAreaView style={styles.home}>
+                {/* <KeyboardAwareScrollView contentContainerStyle={{flex: 1}}> */}
                 <View style={styles.main}>
-                    <FlatList
+                    <KeyboardAwareFlatList 
                     numColumns="1"
                     contentContainerStyle={styles.scrollView}
                     keyExtractor={item => (item.id).toString()}
@@ -92,10 +95,12 @@ export default class ScreenHome extends React.Component {
                 </View>
                 <View style={styles.form}>
                     <TextInput
+                    autoFocus
                     ref={input => { this.textInput = input }}
                     placeholder="Message..."
                     style={styles.message}
                     onChangeText={text => this.onTyping(text)}
+                    onSubmitEditing={()=>this.send()}
                     />
                     <TouchableOpacity
                     style={styles.send}
@@ -104,6 +109,7 @@ export default class ScreenHome extends React.Component {
                     <Text style={{color: "#F6F6F6"}}>Envoyer</Text>
                     </TouchableOpacity>
                 </View>
+            {/* </KeyboardAwareScrollView> */}
             </SafeAreaView>
         );
     }

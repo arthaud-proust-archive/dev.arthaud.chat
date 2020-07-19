@@ -16,12 +16,13 @@ export default function(props) {
                 placeholder="Code du salon"
                 style={styles.input}
                 onChangeText={text => props.this.onChangeRoom(text)}
+                onSubmitEditing={()=>props.this.joinRoom(props.this.room)}
                 />
                 <TouchableOpacity
                 style={styles.button}
                 onPress={()=>props.this.joinRoom(props.this.room)}
                 >
-                <Text style={{color: "#F6F6F6"}}>Rejoindre ou créer</Text>
+                <Text style={{color: "#FFF"}}>Rejoindre ou créer</Text>
                 </TouchableOpacity>
             </View>
         </View>

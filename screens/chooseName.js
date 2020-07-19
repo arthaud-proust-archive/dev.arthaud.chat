@@ -5,36 +5,45 @@ View,
 SafeAreaView,
 Text,
 TextInput,
-TouchableOpacity
+TouchableOpacity,
+Image
 } from 'react-native';
 
 
 
-export default class ScreenHome extends React.Component {
+export default class ScreenChooseName extends React.Component {
     constructor() {
         super();
-        //Setting up global variable
         this.state = {
-            name: ''
+            error: false
         }
         global.storage.load({
             key: 'name',
             autoSync: true,
         }).then(ret => {
             global.name = ret;
-            this.setState({ name: ret })
+            this.textInput.value = ret;
             this.props.navigation.navigate('ChooseRoom');
         }).catch(e=>{
             global.name = '';
         })
     }
     static navigationOptions = {
-        title: 'Choisir un nom'
+        headerShown: false,
     };
     onChangeName(text) {
         global.name = text;
     }
     saveName() {
+        if (!name.match(/\S/gm))  {
+            this.setState({error: 'Le nom ne peut pas être vide'});
+            return
+        }
+        if (name.length > 20) {
+            this.setState({error: '20 caractères maximum'});
+            return
+        }
+        this.setState({error: false});
         global.storage.save({
             key: 'name',
             data: global.name
@@ -46,18 +55,29 @@ export default class ScreenHome extends React.Component {
         return (
             <SafeAreaView style={styles.home}>
                 <View style={styles.main}>
-                    <Text style={styles.titleText}>Choisissez votre nom</Text>
-                    <TextInput
-                    value={this.state.name}
-                    style={styles.input}
-                    onChangeText={text => this.onChangeName(text)}
+                    <Image
+                    style={styles.logo}
+                    source={require('../assets/icon.png')}
                     />
-                    <TouchableOpacity
-                    style={styles.button}
-                    onPress={()=>this.saveName()}
-                    >
-                    <Text>Enregistrer ce nom</Text>
-                    </TouchableOpacity>
+                    <View style={{flex: 1}}>
+                        <Text style={styles.titleText}>Choisissez votre pseudo</Text>
+                        <TextInput
+                        ref={this.textInput}
+                        style={styles.input}
+                        onChangeText={text => this.onChangeName(text)}
+                        onSubmitEditing={()=>this.saveName()}
+                        />
+                        {this.state.error && <Text style={{color:"#F57E7E"}}>{this.state.error}</Text>}
+                        <TouchableOpacity
+                        style={styles.button}
+                        onPress={()=>this.saveName()}
+                        >
+                        <Text>Continuer</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Conditions')} style={{paddingVertical:20}}>
+                            <Text style={styles.conditions}>En continuant, vous acceptez les <Text style={{textDecorationStyle:'solid', textDecorationColor: '#DDD', textDecorationLine: "underline"}}>conditions d'utilisation</Text></Text>
+                        </TouchableOpacity>
                 </View>
             </SafeAreaView>
         );
@@ -71,11 +91,18 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     main: {
-        flex: 12,
+        flex: 1,
         padding: 50,
+        flexDirection: "column",
         justifyContent: "center",
-        alignContent: "center"
+        alignItems: "center",
+        backgroundColor: "#ffffff"
     },  
+    logo: {
+        flex:1,
+        width: 100,
+        resizeMode: 'contain',
+    },
     titleText: {
         fontSize: 18,
         fontWeight: "bold",
@@ -83,14 +110,16 @@ const styles = StyleSheet.create({
     },
     input: { 
         height: 40,
+        width: 250,
         borderColor: 'gray',
         borderWidth: 0.5,
         borderRadius: 5,
         padding: 10 
     },
     button: {
+        width: 250,
         alignItems: "center",
-        backgroundColor: "#DDD",
+        backgroundColor: "#F5F5F5",
         padding: 10,
         marginTop: 10,
         borderRadius: 5
@@ -98,5 +127,8 @@ const styles = StyleSheet.create({
     title: {
         textAlign: 'center',
     },
+    conditions: {
+        fontSize: 10
+    }
 });
 

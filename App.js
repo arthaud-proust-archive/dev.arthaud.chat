@@ -7,11 +7,13 @@ import AsyncStorage from '@react-native-community/async-storage';
 import ScreenChat from './screens/chat';
 import ScreenChooseName from './screens/chooseName';
 import ScreenChooseRoom from './screens/chooseRoom';
+import ScreenConditions from './screens/conditions';
 
 const MainNavigator = createStackNavigator({
     ChooseName: {screen: ScreenChooseName},
     ChooseRoom: {screen: ScreenChooseRoom},
     Chat: {screen: ScreenChat},
+    Conditions: {screen: ScreenConditions},
 });
 
 const App = createAppContainer(MainNavigator);
