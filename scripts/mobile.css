@@ -52,6 +52,12 @@ input[type='button']:focus {
     bottom: 20px;
 }
 
+#globalRooms, #savedRooms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #chooseName {
     z-index: 1001;
 }
