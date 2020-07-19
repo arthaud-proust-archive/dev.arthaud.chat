@@ -266,6 +266,10 @@ input[type='button']:focus {
     width: 30%
 }
 
+
+#download-page {
+    text-align: center;
+}
 .download {
     border: 0;
     background: #0a0a0a;
