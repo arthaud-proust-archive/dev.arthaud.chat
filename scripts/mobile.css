@@ -265,3 +265,14 @@ input[type='button']:focus {
     font-weight: 200;
     width: 30%
 }
+
+.download {
+    border: 0;
+    background: #0a0a0a;
+    color: #fefefe;
+    padding: 7px 12px;
+    border-radius: 5px;
+    margin: 5px 5px 10px 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
